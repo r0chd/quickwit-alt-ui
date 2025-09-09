@@ -1,0 +1,119 @@
+@font-face {
+  font-family: 'Soehne';
+  font-weight: 300;
+  src: url('assets/fonts/soehne-web-buch.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Soehne';
+  font-weight: 600;
+  src: url('assets/fonts/soehne-web-halbfett.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'SoehneMono';
+  font-weight: 500;
+  src: url('assets/fonts/soehne-mono-web-kraftig.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'SoehneMono';
+  font-weight: 700;
+  src: url('assets/fonts/soehne-mono-web-dreiviertelfett.woff2') format('woff2');
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'SoehneMono', Arial;
+  font-weight: 400;
+  color: white;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+pre code.hljs.language-json {
+    background-color: #1B1D1E !important;
+    color: #e9ecef;
+    padding: 12px;
+    border-radius: 4px;
+    display: block;
+}
+
+.hljs-attr {
+    color: #ff6b6b !important;
+}
+
+.hljs-string {
+    color: #74b9ff !important;
+}
+
+.hljs-number {
+    color: #00b894 !important;
+}
+
+.hljs-literal {
+    color: #ffeaa7 !important;
+}
+
+.hljs-punctuation {
+    color: #dfe6e9 !important;
+}
+
+html, body, #root {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+
+body,
+html,
+div {
+  background-color: #181a1b;
+}
+
+svg {
+  background: transparent;
+}
+
+.app-header {
+  height: 50px;
+  background-color: #1b1d1e;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  font-weight: bold;
+}
+
+.content-area {
+  flex: 1;
+  background: #0d1117;
+}
+
+/* Navigation */
+.nav-link {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  margin: 2px 0;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #f8f9fa;
+  transition: background 0.2s ease;
+}
+
+.nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.nav-icon {
+  margin-right: 12px;
+  display: flex;
+  align-items: center;
+}
+
+.button {}

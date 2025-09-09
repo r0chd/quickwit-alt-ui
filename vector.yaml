@@ -1,0 +1,50 @@
+sources:
+  fake_logs:
+    type: demo_logs
+    format: json
+    interval: 1
+
+transforms:
+  remap_fake_logs:
+    type: remap
+    inputs:
+      - fake_logs
+    source: |
+      .timestamp_nanos = to_unix_timestamp!(.timestamp, unit: "nanoseconds")
+
+      .body.message = parse_json(.message) ?? { "message": .message }
+      .severity_text = "INFO"
+
+      .service_name = "demo-service"
+
+      .resource_attributes = {
+        "service": { "name": .service_name },
+        "host": { "hostname": "localhost" }
+      }
+
+      .attributes = { "source": "fake_logs" }
+
+      del(.message)
+      del(.host)
+      del(.service)
+      del(.source_type)
+      del(.timestamp)
+
+sinks:
+  emit_logs:
+    type: console
+    inputs:
+      - remap_fake_logs
+    encoding:
+      codec: json
+
+  quickwit_logs:
+    type: http
+    method: post
+    inputs:
+      - remap_fake_logs
+    uri: "http://localhost:7280/api/v1/otel-logs-v0_7/ingest"
+    encoding:
+      codec: json
+    framing:
+      method: newline_delimited
