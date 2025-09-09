@@ -1,0 +1,18 @@
+[application]
+name = "quickwit-alt-ui"
+default_platform = "web"
+out_dir = "dist"
+asset_dir = "assets"
+
+[web.app]
+title = "quickwit-alt-ui"
+
+[web.watcher]
+reload_html = true
+watch_path = ["src", "assets"]
+
+[[web.proxy]]
+backend = "http://localhost:7280/api"
+
+[application.web]
+index_html = "index.html"
